@@ -132,4 +132,41 @@ function survey_show_feedback_form($form, &$form_state) {
   return $form;
 }
 
+/**
+ * Displays all submitted user experts.
+ */
+function survey_show_feedback_experts_form($form, &$form_state) {
+
+  try {
+    $result = db_query("SELECT feedback_experts
+                        FROM {survey_users}
+                        WHERE (feedback_experts != null OR feedback_experts != '')
+                        ");
+    $experts = $result->fetchAll();
+
+  } catch (PDOException $e) {
+    $experts = array();
+  }
+
+  $html = '';
+  if (!empty($experts)) {
+    foreach ($experts as $expert) {
+      $html .= '<p>' . check_markup($expert->feedback_experts) . '</p>';
+    }
+  }
+
+  if (empty($html)) {
+    $html = t("Es wurden noch keine Experten vorgeschlagen.");
+  }
+
+  $form['feedback']= array(
+    '#markup' => $html,
+    '#attributes' => array(
+      'class' => array('user-feedback'),
+    )
+  );
+
+  return $form;
+}
+
 

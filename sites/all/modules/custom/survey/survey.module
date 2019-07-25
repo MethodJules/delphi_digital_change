@@ -91,9 +91,17 @@ function survey_menu()
 
     $items['survey/feedback'] = array(
       'page callback' => 'drupal_get_form',
-      'title' => t('Feedback'),
+      'title' => t('Feedback Anmerkungen'),
       'access arguments' => array('administer users'),
       'page arguments' => array('survey_show_feedback_form'),
+      'file' => 'survey_configure.inc',
+    );
+
+    $items['survey/feedback_experts'] = array(
+      'page callback' => 'drupal_get_form',
+      'title' => t('Feedback Experten'),
+      'access arguments' => array('administer users'),
+      'page arguments' => array('survey_show_feedback_experts_form'),
       'file' => 'survey_configure.inc',
     );
 

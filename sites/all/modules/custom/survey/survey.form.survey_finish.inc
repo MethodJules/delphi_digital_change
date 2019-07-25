@@ -39,7 +39,7 @@ function survey_finish_survey_form() {
     );
 
     $form['experts'] = array(
-      '#title' => t('Kennen sie weitere Experten? (Name, E-Mail)'),
+      '#title' => t('Kennen Sie weitere Experten? (Name, E-Mail)'),
       '#resizable' => FALSE,
       '#type' => 'textarea',
       '#rows' => 2,
