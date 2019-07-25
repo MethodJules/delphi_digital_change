@@ -498,16 +498,20 @@ function _survey_get_user($userId) {
  *   The user token.
  * @param string $feedback
  *   The user feedback to be saved.
+ * @param string $experts
+ *   The suggested experts to be saved.
  *
  * @return bool
  *   TRUE if the feedback has been saved, otherwise FALSE.
  */
-function _survey_save_feedback($userId, $feedback) {
+function _survey_save_feedback($userId, $feedback, $experts) {
   $success = TRUE;
   try {
-    db_query("UPDATE {survey_users} SET feedback = :user_feedback WHERE user_pw = :userId", array(
+    db_query("UPDATE {survey_users} SET feedback = :user_feedback, feedback_experts = :user_experts
+                WHERE user_pw = :userId", array(
       ':userId' => $userId,
       ':user_feedback' => $feedback,
+      ':user_experts' => $experts,
     ));
   } catch (PDOException $e) {
     $success = FALSE;

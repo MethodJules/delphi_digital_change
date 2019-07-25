@@ -38,6 +38,17 @@ function survey_finish_survey_form() {
         ),
     );
 
+    $form['experts'] = array(
+      '#title' => t('Kennen sie weitere Experten? (Name, E-Mail)'),
+      '#resizable' => FALSE,
+      '#type' => 'textarea',
+      '#rows' => 2,
+      '#default_value' => $user['feedback_experts'],
+      '#attributes' => array(
+        'id' => 'survey-feedback-experts',
+      ),
+    );
+
     $form = delphi_question_add_autosize($form);
 
     $form['submit'] = array(
@@ -56,7 +67,8 @@ function survey_finish_survey_form_submit($form, &$form_state) {
     $success = FALSE;
 
     $userFeedback = $form_state['values']['feedback'];
-    $success = _survey_save_feedback($userId, $form_state['values']['feedback']);
+    $userExperts = $form_state['values']['experts'];
+    $success = _survey_save_feedback($userId, $userFeedback, $userExperts);
 
 
     if ($success) {

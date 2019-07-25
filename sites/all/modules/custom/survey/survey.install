@@ -64,6 +64,11 @@ function survey_schema() {
                 'type' => 'datetime',
                 'mysql_type' => 'datetime',
             ),
+            'feedback_experts' => array(
+              'description' => 'Further experts suggested by of the user',
+              'type' => 'text',
+              'size' => 'normal',
+            ),
         ),
         'primary key' => array('user_id'),
     );
@@ -119,6 +124,14 @@ function survey_schema() {
 }
 
 /**
- * Implements hook_update_N
+ * Add feedback_experts field to {survey_users} table.
  */
+function survey_update_7100() {
+  $definition = array(
+    'type' => 'text',
+    'description' => "The suggested experts of the user",
+    'not null' => FALSE,
+  );
+  db_add_field('survey_users', 'feedback_experts', $definition);
+}
 

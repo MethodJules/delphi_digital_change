@@ -21,7 +21,7 @@
 /* Fixed survey headers */
 .question-header {
   position: fixed;
-  width: inherit;
+  width: 820px;
   background: #fff;
   z-index: 200;
   padding-top: 10px; }
@@ -45,7 +45,7 @@
   .evaluation-content-wrapper.one-row {
     padding-top: calc(95px + 10px + 30px); }
   .evaluation-content-wrapper.two-rows {
-    padding-top: calc(0px + 10px + 20px + 30px); }
+    padding-top: calc(95px + 10px + 20px + 30px); }
   .evaluation-content-wrapper.three-rows {
     padding-top: calc(95px + 10px + 40px + 30px); }
   .evaluation-content-wrapper.four-rows {
@@ -668,7 +668,7 @@ textarea {
   margin-top: 0.5rem; }
 
 #survey-question-evaluation-form .evaluation.text .boxplot-nodata {
-  margin-top: 30px; }
+  margin-top: unset; }
 
 #survey-question-evaluation-form .evaluation .knowledgeMap.form-textarea {
   display: none; }
@@ -813,7 +813,7 @@ textarea {
   margin-top: 80px; }
 
 .boxplot-nodata {
-  margin-top: 1px;
+  margin-top: -40px;
   margin-bottom: 10px; }
 
 /* Abstand Antwortmöglichkeit Textfeld beim Beantworten der Umfrage */
@@ -933,6 +933,9 @@ input.form-radio {
 .form-item-feedback {
   margin-top: 2em;
   margin-bottom: 0; }
+
+.form-item-experts {
+  margin-top: 1em; }
 
 /* Always position the back button to the left */
 .buttons-submit,
