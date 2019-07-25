@@ -34,7 +34,7 @@ $color-average: #ff5bbd;
 /* Fixed survey headers */
 .question-header {
   position: fixed;
-  width: 820px;
+  width: inherit;
   background: #fff;
   z-index: 200;
   padding-top: 10px;
@@ -72,7 +72,7 @@ $color-average: #ff5bbd;
   }
 
   &.two-rows {
-    padding-top: calc(95px + 10px + 20px + 30px);
+    padding-top: calc(0px + 10px + 20px + 30px);
   }
 
   &.three-rows {
@@ -409,7 +409,7 @@ textarea {
 }
 
 #survey-question-evaluation-form .evaluation.text .boxplot-nodata {
-  margin-top: unset;
+  margin-top: 30px;
 }
 
 #survey-question-evaluation-form {
@@ -599,7 +599,7 @@ textarea {
 }
 
 .boxplot-nodata {
-  margin-top: -40px;
+  margin-top: 1px;
   margin-bottom: 10px;
 }
 
